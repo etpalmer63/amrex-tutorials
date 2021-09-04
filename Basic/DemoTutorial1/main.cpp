@@ -9,11 +9,16 @@
 #include <AMReX_PlotFileUtil.H>
 #include <AMReX_ParmParse.H>
 
+void UselessFunc();
+void MyFunc0();
+void MyFunc1();
 
 int main (int argc, char* argv[])
 {
     amrex::Initialize(argc,argv);
     {
+
+BL_PROFILE_VAR("main()",pmain);
 
     // **********************************
     // DECLARE SIMULATION PARAMETERS
@@ -163,6 +168,7 @@ int main (int argc, char* argv[])
 
     for (int step = 1; step <= nsteps; ++step)
     {
+
         // fill periodic ghost cells
         phi_old.FillBoundary(geom.periodicity());
 
@@ -189,6 +195,33 @@ int main (int argc, char* argv[])
                      +(phiOld(i,j,k+1) - 2.*phiOld(i,j,k) + phiOld(i,j,k-1)) / (dx[2]*dx[2])
                         );
             });
+
+            {                                                                                                                        
+                BL_PROFILE_REGION_VAR("NewTest1",test1);
+  
+                UselessFunc();  
+                BL_PROFILE_REGION_VAR_STOP("NewTest1", test1);
+
+                {
+  
+                   MyFunc0();
+                }
+
+                BL_PROFILE_REGION_VAR("Test2", test2)
+                BL_PROFILE_REGION_VAR_START("Test2", test2)
+                UselessFunc();  
+                BL_PROFILE_REGION_VAR_STOP("Test2", test2);
+  
+                {
+  
+                   MyFunc1();
+
+                   BL_PROFILE_REGION_VAR_START("Test1NewName", test1);
+                   UselessFunc();  
+                   BL_PROFILE_REGION_VAR_STOP("Test1NewName", test1);
+                }
+            }
+
         }
 
         // **********************************
@@ -205,6 +238,8 @@ int main (int argc, char* argv[])
         amrex::Print() << "Advanced step " << step << "\n";
 
 
+        UselessFunc();
+
         // **********************************
         // WRITE PLOTFILE AT GIVEN INTERVAL
         // **********************************
@@ -215,12 +250,47 @@ int main (int argc, char* argv[])
             const std::string& pltfile = amrex::Concatenate("plt",step,5);
             WriteSingleLevelPlotfile(pltfile, phi_new, {"phi"}, geom, time, step);
         }
+
+
+
+ 
+
+
+
+
+
     }
 
+
+BL_PROFILE_VAR_STOP(pmain);
 
     }
     amrex::Finalize();
     return 0;
 }
 
+
+void UselessFunc(){
+    BL_PROFILE_VAR("UselessFunc", uselessFunc);
+    for (int i=1; i<1000; ++i){
+        amrex::Print() << ".";
+    }
+    amrex::Print() << std::endl;
+}
+
+void MyFunc0(){
+    BL_PROFILE_VAR("MyFunc0", myFunc0);
+    for (int i=1; i<1000; ++i){
+        amrex::Print() << ".";
+    }
+    amrex::Print() << std::endl;
+}
+
+void MyFunc1(){
+    BL_PROFILE_VAR("MyFunc1", myFunc1);
+    for (int i=1; i<1000; ++i){
+        amrex::Print() << ".";
+    }
+    amrex::Print() << std::endl;
+}
 
