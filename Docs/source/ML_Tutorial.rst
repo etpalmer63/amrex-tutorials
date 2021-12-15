@@ -3,8 +3,8 @@ ML/PYTORCH
 
 In ``amrex-tutorials/ExampleCodes/ML/PYTORCH`` there is an example demonstrating the usage of a pre-trained PyTorch model in the AMReX framework.  In this example, we initialize data on a MultiFab, copy the data into a PyTorch tensor, call the model, and load the result back into a MultiFab.  The program works on both the host (CPU) and GPU.
 
-**Running AMReX application with PyTorch model**
-------------------------------------------------
+**Running AMReX with a PyTorch model**
+--------------------------------------
 
 Below is a step-by-step guide to successfully run an AMReX program that uses PyTorch model. It is based on ``ML/PYTORCH/README.md`` and will require the model to have been saved as ``TorchScript``. For more information on TorchScript, please visit the `intro tutorial <https://pytorch.org/tutorials/beginner/Intro_to_TorchScript_tutorial.html>`_.
 
