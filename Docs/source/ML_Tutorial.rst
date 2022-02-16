@@ -1,4 +1,6 @@
-ML/PYTORCH
+.. _tutorials_ml:
+
+ML/PyTorch
 ==========
 
 The overall goal of machine learning models in this context is to accelerate computationally expensive kernels/routines as part of an AMReX simulation.

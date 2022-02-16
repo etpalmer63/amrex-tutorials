@@ -48,6 +48,8 @@ sorted by the following categories:
 - :ref:`ForkJoin<tutorials_forkjoin>` -- Parallel execution and subgrouping of MPI ranks.
 - :ref:`GPU<tutorials_gpu>`  -- Offload work to the GPUs using AMReX tools.
 - :ref:`Linear Solvers<tutorials_linearsolvers>`  -- Examples of several linear solvers.
+- :ref:`ML/PyTorch<tutorials_ml>`  -- Interfaces a pre-trained PyTorch machine
+  learning model with AMReX to solve a radioactive decay problem.
 - :ref:`MUI<tutorials_mui>`  -- Incorporates the MxUI/MUI (Multiscale Universal interface) frame into AMReX.
 - :ref:`Particles<tutorials_particles>`  -- Basic usage of AMReX's particle data structures.
 - :ref:`SDC<tutorials_sdc>`  -- Example usage of a "Multi-Implicit" Spectral Deferred Corrections (MISDC) integrator
@@ -73,32 +75,6 @@ sorted by the following categories:
    SDC_Tutorial
    SENSEI_Tutorial
    SWFFT_Tutorial
-
-
-.. _`AMR`:  AMR_Tutorial.html
-
-.. _`Basic`:  Basic_Tutorial.html
-
-.. _`Blueprint`:  Blueprint_Tutorial.html
-
-.. _`EB`:  EB_Tutorial.html
-
-.. _`ForkJoin`:  ForkJoin_Tutorial.html
-
-.. _`GPU`:  GPU_Tutorial.html
-
-.. _`Linear Solvers`:  LinearSolvers_Tutorial.html
-
-.. _`MUI`: MUI_Tutorial.html
-
-.. _`Particles`: Particles_Tutorial.html
-
-.. _`SDC`: SDC_Tutorial.html
-
-.. _`SENSEI`: SENSEI_Tutorial.html
-
-.. _`SWFFT`: SWFFT_Tutorial.html
-
 
 
 |
